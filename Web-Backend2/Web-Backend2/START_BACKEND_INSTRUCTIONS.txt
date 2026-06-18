@@ -1,0 +1,47 @@
+How to start the Indoor Navigation project (backend + frontend)
+
+Prerequisites:
+- Windows with Python installed, or use the `py` launcher (Windows default).
+- Node.js + npm installed for the frontend.
+
+Backend (start API):
+1) Open PowerShell and change to the project backend root:
+   cd "C:\Users\USER\Desktop\another work\Web-Avatar-Direction\Web-Backend2\Web-Backend2"
+
+2) Create and activate a virtual environment (optional but recommended):
+   py -3 -m venv .venv
+   . .\.venv\Scripts\Activate.ps1
+
+3) Install Python dependencies:
+   python -m pip install -r backend/requirements.txt
+
+4) Start the FastAPI server:
+   python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
+
+Notes:
+- If the `python` command is not found, use the `py -3` launcher instead (e.g. `py -3 -m uvicorn ...`).
+- To run the project's helper script instead, use:
+   powershell -ExecutionPolicy Bypass -File .\start_backend.ps1
+- Stop the server with Ctrl+C in the terminal.
+
+Frontend (start web app):
+1) In a separate terminal, change to the web app folder:
+   cd "C:\Users\USER\Desktop\another work\Web-Avatar-Direction\Web-Backend2\Web-Backend2\web-app"
+
+2) Install and start the dev server:
+   npm install
+   npm run dev
+
+Frontend dev server URL:
+- http://127.0.0.1:5173
+
+API URLs (when backend is running):
+- API base: http://127.0.0.1:8000
+- Swagger / OpenAPI: http://127.0.0.1:8000/docs
+
+Troubleshooting:
+- If `python` is not recognized, confirm Python is installed and added to PATH, or use `py -3`.
+- If uvicorn is missing: ensure you installed requirements inside the activated venv.
+- If ports are in use, choose a different port in the uvicorn command.
+
+That's it — follow the commands above to start both services.
